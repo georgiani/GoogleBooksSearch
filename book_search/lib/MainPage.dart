@@ -25,20 +25,26 @@ class MainPage extends StatelessWidget {
               body: Column(
                 children: [
                   SearchBar(),
-                  Expanded(
-                    child: bookSearchModel.bookList.isEmpty
-                        ? Container(
-                            child: Text("No books!"),
-                          )
-                        : ListView.builder(
-                            itemCount: bookSearchModel.bookList.length,
-                            itemBuilder: (ctx, idx) {
-                              return BookCard(
-                                book: bookSearchModel.bookList[idx],
-                              );
-                            },
-                          ),
-                  ),
+                  bookSearchModel.isLoading
+                      ? Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: CircularProgressIndicator(),
+                      )
+                      : (bookSearchModel.bookList.isEmpty
+                          ? Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text("No books"),
+                            )
+                          : Expanded(
+                              child: ListView.builder(
+                                itemCount: bookSearchModel.bookList.length,
+                                itemBuilder: (ctx, idx) {
+                                  return BookCard(
+                                    book: bookSearchModel.bookList[idx],
+                                  );
+                                },
+                              ),
+                            )),
                 ],
               ),
             );

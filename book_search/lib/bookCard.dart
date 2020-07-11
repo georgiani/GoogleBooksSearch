@@ -9,6 +9,7 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      leading: Icon(Icons.book),
       title: Text(book.title),
       subtitle: Text(book.author),
     );

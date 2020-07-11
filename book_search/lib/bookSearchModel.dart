@@ -9,8 +9,11 @@ class Book {
 
 class BookSearchModel extends Model {
   List<Book> bookList = [];
+  bool isLoading = false;
 
-  void fetchBooks(String searchBarText) async{
+  Future fetchBooks(String searchBarText) async{
+    startLoading();
+
     bookList.clear();
 
     List<String> formattedSearchList = searchBarText.split(" ");
@@ -23,7 +26,7 @@ class BookSearchModel extends Model {
       }
     }
 
-    final resp = await http.get('https://www.googleapis.com/books/v1/volumes?q=' + formattedSearch.substring(0, formattedSearch.length - 1));
+    final resp = await http.get('https://www.googleapis.com/books/v1/volumes?q=' + formattedSearch.substring(0, formattedSearch.length - 1)).whenComplete(() => stopLoading());
 
     if (resp.statusCode == 200) {
       Map<String, dynamic> mapResp = jsonDecode(resp.body);
@@ -46,6 +49,16 @@ class BookSearchModel extends Model {
       }
     }
 
+    notifyListeners();
+  }
+
+  void startLoading() {
+    isLoading = true;
+    notifyListeners();
+  }
+
+  void stopLoading() {
+    isLoading = false;
     notifyListeners();
   }
 
