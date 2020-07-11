@@ -1,16 +1,7 @@
-# book_search
+# Google Books Search
 
-A new Flutter project.
+This simple app does a search for books using the title given by the user.
 
-## Getting Started
+## 🔥 Screenshot
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Google%20Books%20Search%20fbe78e48a2d54c79aed6ae90f88d48cb/Simulator_Screen_Shot_-_iPhone_11_Pro_Max_-_2020-07-11_at_21.12.05.png](Google%20Books%20Search%20fbe78e48a2d54c79aed6ae90f88d48cb/Simulator_Screen_Shot_-_iPhone_11_Pro_Max_-_2020-07-11_at_21.12.05.png)
